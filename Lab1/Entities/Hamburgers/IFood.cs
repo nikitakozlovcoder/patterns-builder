@@ -4,6 +4,6 @@ namespace Lab1.Entities.Hamburgers;
 
 public interface IFood
 {
-    public Recipe GetRecipe();
+    public BaseRecipe GetRecipe();
     public string GetName();
 }

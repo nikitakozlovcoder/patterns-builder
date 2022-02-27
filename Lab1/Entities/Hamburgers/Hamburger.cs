@@ -9,7 +9,7 @@ public class Hamburger : BaseEntity, IFood
     public Recipe Recipe { get; set; } = new();
     public string Name { get; set; } = "";
 
-    public Recipe GetRecipe()
+    public BaseRecipe GetRecipe()
     {
         return Recipe;
     }

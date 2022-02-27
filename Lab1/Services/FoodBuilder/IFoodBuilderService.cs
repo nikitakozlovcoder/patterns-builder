@@ -4,7 +4,7 @@ using Lab1.Entities.Hamburgers;
 
 namespace Lab1.Services.FoodBuilder;
 
-public interface IFoodBuilderService<T> where T : IFood
+public interface IFoodBuilderService<out T> where T : IFood
 {
     public IFoodBuilderService<T> AddBread(BreadTypes type);
     public IFoodBuilderService<T> AddSauce(SauceTypes type);
