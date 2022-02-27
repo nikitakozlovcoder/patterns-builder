@@ -40,6 +40,11 @@ public class FoodManagerService<T> : IFoodManagerService<T> where T : IFood
         _userInteractor.GetIngredientType<СutletTypes>(x =>
         {
             _builder.AddCutlet(x.Payload);
+            if (x.Payload != СutletTypes.None)
+            {
+                var count = _userInteractor.GetCount(StringConstants.WriteCutletsCount);
+                _builder.SetCutletsCount(count);
+            }
             return true;
         }, StringConstants.CutletOptions);
         

@@ -12,4 +12,5 @@ public interface IUserInteractor
     string GetName();
     void ShowFood(IFood food);
     bool ShouldSave();
+    int GetCount(string prompt);
 }
