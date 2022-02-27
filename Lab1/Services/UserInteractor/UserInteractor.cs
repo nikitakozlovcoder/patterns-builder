@@ -75,6 +75,19 @@ public class UserInteractor : IUserInteractor
         return Console.ReadLine()?.ToLower() == "yes";
     }
 
+    public int GetCount(string prompt)
+    {
+        Console.WriteLine(prompt);
+        var inp = Console.ReadLine();
+        var count = 0;
+        while (!int.TryParse(inp, out count))
+        {
+            Console.WriteLine(StringConstants.UnknownCommand);
+        }
+
+        return count;
+    }
+
     private static void ShowStepOne()
     {
         Console.WriteLine(StringConstants.Options);

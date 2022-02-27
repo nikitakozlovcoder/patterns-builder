@@ -13,4 +13,5 @@ public interface IUserInteractor
     string GetName();
     void ShowFood<T>(IFood<T> food) where T : BaseRecipe;
     bool ShouldSave();
+    int GetCount(string prompt);
 }

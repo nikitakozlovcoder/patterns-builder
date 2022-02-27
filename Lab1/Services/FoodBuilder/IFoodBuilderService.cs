@@ -12,6 +12,7 @@ public interface IFoodBuilderService<out T, TRecipe> where T : IFood<TRecipe> wh
     public IFoodBuilderService<T,TRecipe> AddVegetables(VegetablesTypes type);
     public IFoodBuilderService<T, TRecipe> AddCutlet(СutletTypes type);
     public IFoodBuilderService<T, TRecipe> SetName(string name);
+    public IFoodBuilderService<T, TRecipe> SetCutletsCount(int count);
     public T Build();
 
 }

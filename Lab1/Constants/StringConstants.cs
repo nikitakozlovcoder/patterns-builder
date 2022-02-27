@@ -34,6 +34,6 @@ Choose cutlet:
 {(int)СutletTypes.Chicken} - Chicken
 {(int)СutletTypes.Pork} - Pork
 {(int)СutletTypes.Beef} - Beef";
-
     public const string WriteName = "Enter title";
+    public const string WriteCutletsCount = "Choose cutlets count";
 }

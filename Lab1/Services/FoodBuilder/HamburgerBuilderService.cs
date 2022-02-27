@@ -39,6 +39,12 @@ public class HamburgerBuilderService : IFoodBuilderService<Hamburger, Recipe>
         return this;
     }
 
+    public IFoodBuilderService<Hamburger, Recipe> SetCutletsCount(int count)
+    {
+        _hamburger.Recipe.CutletCount = count;
+        return this;
+    }
+
     public Hamburger Build()
     {
         if ( _hamburger.Recipe.Bread == BreadTypes.None)
