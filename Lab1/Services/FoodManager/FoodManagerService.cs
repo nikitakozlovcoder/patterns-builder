@@ -1,14 +1,15 @@
 ﻿using Lab1.Constants;
 using Lab1.Constants.Ingredients;
 using Lab1.Entities.Hamburgers;
+using Lab1.Entities.Recipes;
 using Lab1.Services.FoodBuilder;
 using Lab1.Services.UserInteractor;
 
 namespace Lab1.Services.FoodManager;
 
-public class FoodManagerService<T> : IFoodManagerService<T> where T : IFood
+public class FoodManagerService<T, TRecipe> : IFoodManagerService<T, TRecipe> where T : IFood<TRecipe> where TRecipe : BaseRecipe
 {
-    private IFoodBuilderService<T> _builder = null!;
+    private IFoodBuilderService<T, TRecipe> _builder = null!;
     private readonly IUserInteractor _userInteractor;
 
     public FoodManagerService(IUserInteractor userInteractor)
@@ -16,10 +17,11 @@ public class FoodManagerService<T> : IFoodManagerService<T> where T : IFood
         _userInteractor = userInteractor;
     }
 
-    public void SetBuilder(IFoodBuilderService<T> foodBuilderService)
+    public void SetBuilder(IFoodBuilderService<T, TRecipe> foodBuilderService)
     {
         _builder = foodBuilderService;
     }
+
     public void ComposeOrder()
     {
         if (_builder == null)

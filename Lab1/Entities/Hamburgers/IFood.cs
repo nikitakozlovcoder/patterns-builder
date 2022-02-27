@@ -2,8 +2,8 @@
 
 namespace Lab1.Entities.Hamburgers;
 
-public interface IFood
+public interface IFood<T> where T : BaseRecipe
 {
-    public BaseRecipe GetRecipe();
+    public T GetRecipe();
     public string GetName();
 }

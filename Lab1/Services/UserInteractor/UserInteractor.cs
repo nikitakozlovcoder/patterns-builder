@@ -2,6 +2,7 @@
 using Lab1.Constants.Ingredients;
 using Lab1.Dto;
 using Lab1.Entities.Hamburgers;
+using Lab1.Entities.Recipes;
 
 namespace Lab1.Services.UserInteractor;
 
@@ -62,7 +63,7 @@ public class UserInteractor : IUserInteractor
         return Console.ReadLine() ?? string.Empty;
     }
 
-    public void ShowFood(IFood food)
+    public void ShowFood<T>(IFood<T> food) where T: BaseRecipe
     {
         Console.WriteLine("Name: " + food.GetName());
         Console.WriteLine("Recipe\n" + food.GetRecipe()+"\n");

@@ -1,38 +1,39 @@
 ﻿using Lab1.Constants.Ingredients;
 using Lab1.Entities.Hamburgers;
+using Lab1.Entities.Recipes;
 
 namespace Lab1.Services.FoodBuilder;
 
-public class HamburgerBuilderService : IFoodBuilderService<Hamburger>
+public class HamburgerBuilderService : IFoodBuilderService<Hamburger, Recipe>
 {
 
     private Hamburger _hamburger = new();
 
-    public IFoodBuilderService<Hamburger> AddBread(BreadTypes type)
+    public IFoodBuilderService<Hamburger, Recipe> AddBread(BreadTypes type)
     {
         _hamburger.Recipe.Bread = type;
         return this;
     }
 
-    public IFoodBuilderService<Hamburger> AddSauce(SauceTypes type)
+    public IFoodBuilderService<Hamburger, Recipe> AddSauce(SauceTypes type)
     {
         _hamburger.Recipe.Sauce = type;
         return this;
     }
 
-    public IFoodBuilderService<Hamburger> AddVegetables(VegetablesTypes type)
+    public IFoodBuilderService<Hamburger, Recipe> AddVegetables(VegetablesTypes type)
     {
         _hamburger.Recipe.Vegetables = type;
         return this;
     }
 
-    public IFoodBuilderService<Hamburger> AddCutlet(СutletTypes type)
+    public IFoodBuilderService<Hamburger, Recipe> AddCutlet(СutletTypes type)
     {
         _hamburger.Recipe.Cutlet = type;
         return this;
     }
 
-    public IFoodBuilderService<Hamburger> SetName(string name)
+    public IFoodBuilderService<Hamburger, Recipe> SetName(string name)
     {
         _hamburger.Name = name;
         return this;
