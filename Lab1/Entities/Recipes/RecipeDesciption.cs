@@ -9,9 +9,15 @@ public class Recipe : BaseRecipe
     public SauceTypes Sauce { get; set; } = SauceTypes.None;
     public VegetablesTypes Vegetables { get; set; } = VegetablesTypes.None;
     public СutletTypes Cutlet { get; set; } = СutletTypes.None;
+    public int CutletCount { get; set; }
     
     public override string ToString()
     {
-       return  $"Bread: {Bread}\nSauce: {Sauce}\nVegetables: {Vegetables}\nCutlet {Cutlet}";
+        var str = $"Bread: {Bread}\nSauce: {Sauce}\nVegetables: {Vegetables}\nCutlet: {Cutlet}";
+        if (Cutlet != СutletTypes.None)
+        {
+            str += $" x{CutletCount}";
+        }
+        return  str;
     }
 }

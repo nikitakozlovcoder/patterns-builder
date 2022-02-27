@@ -1,6 +1,7 @@
 ﻿using Lab1.Constants;
 using Lab1.Data;
 using Lab1.Entities.Hamburgers;
+using Lab1.Entities.Recipes;
 using Lab1.Services.FoodBuilder;
 using Lab1.Services.FoodManager;
 using Lab1.Services.UserInteractor;
@@ -12,12 +13,12 @@ public class App
 {
     private readonly HamburgerBuilderService _hamburgerBuilderService;
     private readonly IUserInteractor _userInteractor;
-    private readonly IFoodManagerService<Hamburger> _foodManagerService;
+    private readonly IFoodManagerService<Hamburger, Recipe> _foodManagerService;
     private readonly IRepository<Hamburger> _hamburgerRepository;
 
     public App(HamburgerBuilderService hamburgerBuilderService, 
         IUserInteractor userInteractor, 
-        IFoodManagerService<Hamburger> foodManagerService, 
+        IFoodManagerService<Hamburger, Recipe> foodManagerService, 
         IRepository<Hamburger> hamburgerRepository)
     {
         _hamburgerBuilderService = hamburgerBuilderService;

@@ -1,5 +1,6 @@
 ﻿using Lab1.Data;
 using Lab1.Entities.Hamburgers;
+using Lab1.Entities.Recipes;
 using Lab1.Services.FoodBuilder;
 using Lab1.Services.FoodManager;
 using Lab1.Services.UserInteractor;
@@ -17,10 +18,10 @@ internal static class Program
             .AddSingleton<DbContext, ApplicationContext>()
             .AddSingleton<App, App>()
             .AddSingleton(typeof(IRepository<>), typeof(Repository<>))
-            .AddTransient<IFoodBuilderService<Hamburger>, HamburgerBuilderService>()
+            .AddTransient<IFoodBuilderService<Hamburger, Recipe>, HamburgerBuilderService>()
             .AddTransient<HamburgerBuilderService, HamburgerBuilderService>()
             .AddTransient<IUserInteractor, UserInteractor>()
-            .AddTransient(typeof(IFoodManagerService<>),typeof(FoodManagerService<>))
+            .AddTransient(typeof(IFoodManagerService<,>),typeof(FoodManagerService<,>))
             .BuildServiceProvider();
     
         var app = serviceProvider.GetRequiredService<App>();
