@@ -5,6 +5,5 @@ namespace Lab1.Services.FoodManager;
 
 public interface IFoodManagerService<T> where T : IFood
 {
-    public void SetBuilder(IFoodBuilderService<T> foodBuilderService);
-    void ComposeOrder();
+    T ComposeOrder();
 }

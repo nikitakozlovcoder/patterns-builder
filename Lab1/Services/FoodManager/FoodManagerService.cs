@@ -6,21 +6,22 @@ using Lab1.Services.UserInteractor;
 
 namespace Lab1.Services.FoodManager;
 
-public class FoodManagerService<T> : IFoodManagerService<T> where T : IFood
+public class FoodManagerService<T> : IFoodManagerService<T> where T : IFood, new()
 {
-    private IFoodBuilderService<T> _builder = null!;
+    private FoodBuilderBase<T> _builder;
     private readonly IUserInteractor _userInteractor;
 
-    public FoodManagerService(IUserInteractor userInteractor)
+    public FoodManagerService(IUserInteractor userInteractor, FoodBuilderBase<T> builder)
     {
         _userInteractor = userInteractor;
+        _builder = builder;
     }
 
-    public void SetBuilder(IFoodBuilderService<T> foodBuilderService)
+    public void SetBuilder(FoodBuilderBase<T> foodBuilderService)
     {
         _builder = foodBuilderService;
     }
-    public void ComposeOrder()
+    public T ComposeOrder()
     {
         if (_builder == null)
         {
@@ -61,5 +62,6 @@ public class FoodManagerService<T> : IFoodManagerService<T> where T : IFood
         }, StringConstants.SauceOptions);
         var name = _userInteractor.GetName();
         _builder.SetName(name);
+        return _builder.Build();
     }
 }

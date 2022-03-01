@@ -10,21 +10,18 @@ namespace Lab1;
 
 public class App
 {
-    private readonly HamburgerBuilderService _hamburgerBuilderService;
     private readonly IUserInteractor _userInteractor;
     private readonly IFoodManagerService<Hamburger> _foodManagerService;
     private readonly IRepository<Hamburger> _hamburgerRepository;
 
-    public App(HamburgerBuilderService hamburgerBuilderService, 
+    public App(
         IUserInteractor userInteractor, 
         IFoodManagerService<Hamburger> foodManagerService, 
         IRepository<Hamburger> hamburgerRepository)
     {
-        _hamburgerBuilderService = hamburgerBuilderService;
         _userInteractor = userInteractor;
         _foodManagerService = foodManagerService;
         _hamburgerRepository = hamburgerRepository;
-        _foodManagerService.SetBuilder(hamburgerBuilderService);
     }
 
     public async Task Run()
@@ -61,8 +58,7 @@ public class App
 
     private async Task CreateFood()
     {
-        _foodManagerService.ComposeOrder();
-        var hamburger = _hamburgerBuilderService.Build();
+        var hamburger = _foodManagerService.ComposeOrder();
         _userInteractor.ShowFood(hamburger);
         var save = _userInteractor.ShouldSave();
         if (save)

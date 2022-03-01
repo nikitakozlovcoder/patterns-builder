@@ -17,7 +17,7 @@ internal static class Program
             .AddSingleton<DbContext, ApplicationContext>()
             .AddSingleton<App, App>()
             .AddSingleton(typeof(IRepository<>), typeof(Repository<>))
-            .AddTransient<IFoodBuilderService<Hamburger>, HamburgerBuilderService>()
+            .AddTransient<FoodBuilderBase<Hamburger>, HamburgerBuilderService>()
             .AddTransient<HamburgerBuilderService, HamburgerBuilderService>()
             .AddTransient<IUserInteractor, UserInteractor>()
             .AddTransient(typeof(IFoodManagerService<>),typeof(FoodManagerService<>))
