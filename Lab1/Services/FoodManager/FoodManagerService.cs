@@ -8,7 +8,7 @@ namespace Lab1.Services.FoodManager;
 
 public class FoodManagerService<T> : IFoodManagerService<T> where T : IFood, new()
 {
-    private FoodBuilderBase<T> _builder;
+    private readonly FoodBuilderBase<T> _builder;
     private readonly IUserInteractor _userInteractor;
 
     public FoodManagerService(IUserInteractor userInteractor, FoodBuilderBase<T> builder)
@@ -16,11 +16,7 @@ public class FoodManagerService<T> : IFoodManagerService<T> where T : IFood, new
         _userInteractor = userInteractor;
         _builder = builder;
     }
-
-    public void SetBuilder(FoodBuilderBase<T> foodBuilderService)
-    {
-        _builder = foodBuilderService;
-    }
+    
     public T ComposeOrder()
     {
         if (_builder == null)
