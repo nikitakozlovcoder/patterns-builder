@@ -16,6 +16,6 @@ public sealed class ApplicationContext : DbContext
         optionsBuilder.UseSqlServer(Configuration.ConnectionString);
     }
     public DbSet<Hamburger>? Hamburger { get; set; }
-    public DbSet<Recipe>? Recipe { get; set; }
+    public DbSet<HamburgerRecipe>? Recipe { get; set; }
     
 }

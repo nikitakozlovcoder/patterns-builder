@@ -6,12 +6,12 @@ namespace Lab1.Entities.Hamburgers;
 
 public class Hamburger : BaseEntity, IFood
 {
-    public Recipe Recipe { get; set; } = new();
+    public HamburgerRecipe HamburgerRecipe { get; set; } = new();
     public string Name { get; set; } = "";
 
     public BaseRecipe GetRecipe()
     {
-        return Recipe;
+        return HamburgerRecipe;
     }
 
     public string GetName()

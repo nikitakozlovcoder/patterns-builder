@@ -7,25 +7,25 @@ public class HamburgerBuilderService : FoodBuilderBase<Hamburger>
 {
     public override FoodBuilderBase<Hamburger> AddBread(BreadTypes type)
     {
-        Food.Recipe.Bread = type;
+        Food.HamburgerRecipe.Bread = type;
         return this;
     }
 
     public override FoodBuilderBase<Hamburger> AddSauce(SauceTypes type)
     {
-        Food.Recipe.Sauce = type;
+        Food.HamburgerRecipe.Sauce = type;
         return this;
     }
 
     public override FoodBuilderBase<Hamburger> AddVegetables(VegetablesTypes type)
     {
-        Food.Recipe.Vegetables = type;
+        Food.HamburgerRecipe.Vegetables = type;
         return this;
     }
 
     public override FoodBuilderBase<Hamburger> AddCutlet(СutletTypes type)
     {
-        Food.Recipe.Cutlet = type;
+        Food.HamburgerRecipe.Cutlet = type;
         return this;
     }
 
@@ -37,13 +37,13 @@ public class HamburgerBuilderService : FoodBuilderBase<Hamburger>
 
     public override FoodBuilderBase<Hamburger> SetCutletsCount(int count)
     {
-        Food.Recipe.CutletCount = count;
+        Food.HamburgerRecipe.CutletCount = count;
         return this;
     }
 
     public override Hamburger Build()
     {
-        if (Food.Recipe.Bread == BreadTypes.None)
+        if (Food.HamburgerRecipe.Bread == BreadTypes.None)
         {
             throw new InvalidOperationException("Bread is required for hamburger");
         }

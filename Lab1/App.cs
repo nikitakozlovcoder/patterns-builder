@@ -49,7 +49,7 @@ public class App
     private async Task ListFood()
     {
         var hamburgers = await _hamburgerRepository.QueryableSelect()
-            .Include(x => x.Recipe).ToArrayAsync();
+            .Include(x => x.HamburgerRecipe).ToArrayAsync();
         foreach (var hamburger in hamburgers)
         {
             _userInteractor.ShowFood(hamburger);
